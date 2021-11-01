@@ -17,7 +17,7 @@ int main(void){
 		x = x + dx;
 		n++;
 
-		printf("%f\n" , x);
+		printf("収束過程：%f\n" , x);
 		if(n == nmax){
 			printf("error");
 			break;
@@ -25,7 +25,7 @@ int main(void){
 
 	}
 	while(fabs(dx) > eps && n <= nmax);
-	printf("%f\n", x);
+	printf("解：%f\n", x);
 
 		return 0;
 }
