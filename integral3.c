@@ -9,9 +9,9 @@ double f(double x){
   }
   
 int main(void){
-  dx = 0.01;/**/
-  x1 = 0;/**/
-  x_end = 3;/**/
+  dx = 0.01;/*微小区間の大きさを設定*/
+  x1 = 0;/*積分区間の始まりを設定*/
+  x_end = 3;/*積分区間の終わりを設定*/
   while(x3 <= x_end){
     x2 = x1 + dx;
     x3 = x1 + 2 * dx;
