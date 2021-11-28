@@ -3,7 +3,7 @@
 #include<time.h>
 
 int get_random(int min, int max){
-  return min + (int)(rand()*(max-min+1.0)/(1.0+RAND_MAX));
+  return min + (int)(rand()*(max-min+1.0)/(1.0+RAND_MAX));/*下限と上限を決めた乱数を生成する*/
 }
 
 int main(void){
@@ -13,18 +13,15 @@ int main(void){
   int a=0,b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,p=0,q=0,r=0,s=0,t=0,u=0,v=0,w=0,x=0,y=0,z=0,sp=0,ex=0;
   char ch;
   FILE *fp;
-  /*FILE *fopen(char *text, "r");*/
-  fp = fopen("T_sample", "r");
-  
-  srand((unsigned int)time(NULL));
+  fp = fopen("T_sample", "r");  
+  srand((unsigned int)time(NULL));/*出力する乱数が毎回変わるようにする*/
 	
 	while(max < 300000){
 	  fscanf(fp, "%c", &ch);
-	  /*fg[n] = fp;*/
 	  max++;
 	  /*printf("%d:%c\n", max, ch);*/
 	  
-	  switch(ch){
+	  switch(ch){/*ファイルの文字を判定する*/
      case 'a':
        a += 1;
        break;
@@ -115,7 +112,7 @@ int main(void){
        
 	  }
 	  
-       printf(" a:%d\n", a);
+       printf(" a:%d\n", a);/*文字の出現回数を表示する*/
        printf(" b:%d\n", b);
        printf(" c:%d\n", c);
        printf(" d:%d\n", d);
@@ -145,11 +142,11 @@ int main(void){
        printf(" ex:%d\n", ex);
 	  fclose(fp);
 	  
-  while(round < 60){
+  while(round < 200){
   
-  random = get_random(0, a+b+c+d+e+f+g+h+i+j+k+l+m+n+o+p+q+r+s+t+u+v+w+x+y+z+sp);
+  random = get_random(0, a+b+c+d+e+f+g+h+i+j+k+l+m+n+o+p+q+r+s+t+u+v+w+x+y+z+sp);/*0から文字の出現回数までの乱数を生み出す*/
   
-  if(0 < random && random <= a)
+  if(0 < random && random <= a)/*文字の出現割合に沿った文字列を出力する*/
     printf("a");
   else if(a < random && random <= a+b)
     printf("b");
@@ -204,8 +201,9 @@ int main(void){
   else if(a+b+c+d+e+f+g+h+i+j+k+l+m+n+o+p+q+r+s+t+u+v+w+x+y+z < random && random <= a+b+c+d+e+f+g+h+i+j+k+l+m+n+o+p+q+r+s+t+u+v+w+x+y+z+sp)
     printf(" ");
   
-      round +=1;}	  
-
+      round +=1;
+      }	  
+  printf("\n");
 	return 0;
 	}
 	
