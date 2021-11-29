@@ -5,6 +5,12 @@
 int get_random(int min, int max){
   return min + (int)(rand()*(max-min+1.0)/(1.0+RAND_MAX));/*下限と上限を決めた乱数を生成する*/
 }
+char convert(char cap){/*大文字を小文字に変換する関数*/
+  if (cap >= 'A' && cap <= 'Z')
+    return (cap + 0x20);
+  else
+    return cap;    
+}
 
 int main(void){
   int max = 0;
@@ -13,13 +19,14 @@ int main(void){
   int a=0,b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,p=0,q=0,r=0,s=0,t=0,u=0,v=0,w=0,x=0,y=0,z=0,sp=0,ex=0;
   char ch;
   FILE *fp;
-  fp = fopen("T_sample", "r");  
+  fp = fopen("T_sample", "r");/*読み込むファイルを指定*/
   srand((unsigned int)time(NULL));/*出力する乱数が毎回変わるようにする*/
 	
-	while(max < 300000){
+	while(feof(fp) == 0){
 	  fscanf(fp, "%c", &ch);
-	  max++;
-	  /*printf("%d:%c\n", max, ch);*/
+	  ch = convert(ch);
+	  /*max++;
+	  printf("%d:%c\n", max, ch);*//*動作確認用*/
 	  
 	  switch(ch){/*ファイルの文字を判定する*/
      case 'a':
@@ -107,9 +114,7 @@ int main(void){
        ex += 1; 
        break;
        
-       }
-       
-       
+       }       
 	  }
 	  
        printf(" a:%d\n", a);/*文字の出現回数を表示する*/
@@ -139,7 +144,7 @@ int main(void){
        printf(" y:%d\n", y);
        printf(" z:%d\n", z);
        printf(" space:%d\n", sp);
-       printf(" ex:%d\n", ex);
+       printf(" ex:%d\n", ex-2);
 	  fclose(fp);
 	  
   while(round < 200){
