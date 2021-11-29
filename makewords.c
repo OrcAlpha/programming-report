@@ -15,11 +15,11 @@ char convert(char cap){/*大文字を小文字に変換する関数*/
 int main(void){
   int max = 0;
   int round = 0;
-  int random;
+  int random, all;
   int a=0,b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,p=0,q=0,r=0,s=0,t=0,u=0,v=0,w=0,x=0,y=0,z=0,sp=0,ex=0;
   char ch;
   FILE *fp;
-  fp = fopen("T_sample", "r");/*読み込むファイルを指定*/
+  fp = fopen("NegroHistory.txt", "r");/*読み込むファイルを指定*/
   srand((unsigned int)time(NULL));/*出力する乱数が毎回変わるようにする*/
 	
 	while(feof(fp) == 0){
@@ -117,6 +117,8 @@ int main(void){
        }       
 	  }
 	  
+	  all = a+b+c+d+e+f+g+h+i+j+k+l+m+n+o+p+q+r+s+t+u+v+w+x+y+z+sp;
+	     printf(" all:%d\n", all);
        printf(" a:%d\n", a);/*文字の出現回数を表示する*/
        printf(" b:%d\n", b);
        printf(" c:%d\n", c);
